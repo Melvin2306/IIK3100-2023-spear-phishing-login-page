@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     data: {
       password: password,
       username: username,
-    },
+    } as Prisma.UserCreateInput,
   });
   return new Response(JSON.stringify(user), {
     headers: { "content-type": "application/json" },
