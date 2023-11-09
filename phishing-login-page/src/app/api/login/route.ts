@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, UserUncheckedCreateInput } from "@prisma/client";
 
 export async function POST(request: Request) {
   const prisma = new PrismaClient();
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     data: {
       password: password,
       username: username,
-    },
+    } as UserUncheckedCreateInput,
   });
   return new Response(JSON.stringify(user), {
     headers: { "content-type": "application/json" },
