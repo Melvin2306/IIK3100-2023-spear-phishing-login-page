@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 
 export async function POST(request: Request) {
   const prisma = new PrismaClient();
@@ -9,6 +10,11 @@ export async function POST(request: Request) {
     data: {
       password: password,
       username: username,
+      email: "example@example.com",
+      name: "John Doe",
+      picture: "https://example.com/picture.jpg",
+      sid: "1234567890",
+      // add any other missing properties here
     } as Prisma.UserCreateInput,
   });
   return new Response(JSON.stringify(user), {
